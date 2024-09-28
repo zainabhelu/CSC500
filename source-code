@@ -1,0 +1,61 @@
+# Program to display course details (room number, instructor, and meeting time)
+# based on user input of a course number
+
+# Defining the dictionaries for room numbers, instructors, and meeting times
+course_rooms = {
+    'CSC101': '3004',
+    'CSC102': '4501',
+    'CSC103': '6755',
+    'NET110': '1244',
+    'COM241': '1411'
+}
+
+course_instructors = {
+    'CSC101': 'Haynes',
+    'CSC102': 'Alvarado',
+    'CSC103': 'Rich',
+    'NET110': 'Burke',
+    'COM241': 'Lee'
+}
+
+course_times = {
+    'CSC101': '8:00 a.m.',
+    'CSC102': '9:00 a.m.',
+    'CSC103': '10:00 a.m.',
+    'NET110': '11:00 a.m.',
+    'COM241': '1:00 p.m.'
+}
+
+def display_course_details(course_number):
+    """
+    Displays the room number, instructor, and meeting time for the provided course number.
+
+    Parameters:
+    course_number (str): The course number entered by the user.
+
+    Returns:
+    None: Prints the course details or a message indicating the course was not found.
+    """
+    
+    # Check if the course exists in the dictionaries
+    if course_number in course_rooms and course_number in course_instructors and course_number in course_times:
+        room = course_rooms[course_number]  # Get the room number
+        instructor = course_instructors[course_number]  # Get the instructor's name
+        time = course_times[course_number]  # Get the meeting time
+        
+        # Display course details
+        print(f"Course Number: {course_number}")
+        print(f"Room Number: {room}")
+        print(f"Instructor: {instructor}")
+        print(f"Meeting Time: {time}")
+    else:
+        # Display error message if course number is not found
+        print("Course number not found.")
+
+# Main program starts here
+if __name__ == "__main__":
+    # Prompt the user to enter a course number
+    course_number = input("Enter a course number (e.g., CSC101): ")
+    
+    # Call the function to display the course details
+    display_course_details(course_number)
